@@ -4,13 +4,13 @@ class TeamsController < ApplicationController
   # GET /teams
   def index
     @teams = Team.all
-    render json: @teams, include: :users
+    render json: @teams, include: :members
   end
 
   # GET /teams/:id
   def show
     @team = Team.find(params[:id])
-    render json: @team, include: :users
+    render json: @team, include: :members
   end
 
   # POST /teams
