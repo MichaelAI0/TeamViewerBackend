@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :teams, only: [:index, :show, :create, :update]
-  resources :members, only: [:show, :update]
+  resources :members, only: [:show, :update, :create]
   post '/auth/login', to: 'authentication#login'
 end
