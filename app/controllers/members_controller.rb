@@ -1,6 +1,12 @@
 class MembersController < ApplicationController
   before_action :authenticate_request
 
+   # GET /members
+  def index
+    @members = Member.all
+    render json: @members, include: :team
+  end
+
   # POST /members
   def create 
     @member = Member.new(member_params)
