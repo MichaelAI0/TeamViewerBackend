@@ -35,6 +35,11 @@ def update
   end
 end
 
+# Delete /teams/:id
+def destroy
+  @team = Team.find(params[:id]).destroy
+end
+
 private
 
 

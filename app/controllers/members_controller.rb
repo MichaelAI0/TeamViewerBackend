@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
-  before_action :authenticate_request
+  skip_before_action :authenticate_request, only: [:index, :show]
 
-   # GET /members
+  # GET /members
   def index
     @members = Member.all
     render json: @members, include: :team
@@ -33,6 +33,11 @@ class MembersController < ApplicationController
     else
       render json: @member.errors, status: :unprocessable_entity
     end
+  end
+
+  # Delete /members/:id
+  def destroy
+    @member = Member.find(params[:id]).destroy
   end
 
   private

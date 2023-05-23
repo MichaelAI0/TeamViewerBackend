@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :users
-  resources :teams, only: [:index, :show, :create, :update]
-  resources :members, only: [:show, :update, :create]
+  resources :teams
+  resources :members
   post '/auth/login', to: 'authentication#login'
 end
