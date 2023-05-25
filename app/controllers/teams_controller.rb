@@ -29,7 +29,7 @@ def update
   @team = Team.find(params[:id])
 
   if @team.update(team_params)
-    render json: @team
+    render json: @team, status: :ok
   else
     render json: @team.errors, status: :unprocessable_entity
   end
@@ -41,8 +41,6 @@ def destroy
 end
 
 private
-
-
 def team_params
   params.require(:team).permit(:name, :description)
 end
