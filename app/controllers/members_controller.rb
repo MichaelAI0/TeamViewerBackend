@@ -10,11 +10,10 @@ class MembersController < ApplicationController
   # POST /members
   def create 
     @member = Member.new(member_params)
-    
+    logger.debug "New Member: #{@member.attributes.inspect}"
     if @member.save
       render json: @member, status: :created
     else
-      Rails.logger.info @member.errors.full_messages
       render json: {errors: @member.errors.full_messages},
       status: :unprocessable_entity
     end
