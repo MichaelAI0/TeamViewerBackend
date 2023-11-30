@@ -25,6 +25,13 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
+# Ignore vendored assets
+/vendor/assets/
+
+# Ignore bundled gems if using --path option
+/vendor/bundle/
+
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
